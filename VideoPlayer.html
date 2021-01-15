@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Andreas Bauer - DASH player</title>
+
+    <script src="dash.all.debug.js"></script>
+
+    <style>
+        video {
+            width: 920px;
+            height: 560px;
+        }
+    </style>
+
+    <body onload="Dash.createAll()">
+        <div>
+            <video class="dashjs-player" autoplay preload="none" controls="true">
+                <source src="https://dash.akamaized.net/akamai/bbb_30fps/bbb_30fps.mpd" type="application/dash+xml"/>
+            </video>
+        </div>
+    </body>
+</html>
