@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <title>Andreas Bauer - DASH player</title>
-
+	<link rel="shortcut icon" type="image/png" href="img/logo-favicon.ico.png">
     <script src="dash.all.debug.js"></script>
 
     <style>
@@ -11,10 +11,30 @@
             width: 920px;
             height: 560px;
         }
+		body {
+			background-image: linear-gradient(to bottom right,rgb(190,194,203),rgb(108,122,206));
+			background-size: contain;
+		}
+		#searchBar {
+			width: 75%;
+			background-color: white;
+			border: 1px solid #000;
+			padding: 15px 50px 15px 10px;
+			color: #000;
+			border-radius: 8px;
+			font-family: nunito_sansregular;
+		}
     </style>
-
+</head>
     <body onload="Dash.createAll()">
-        <div>
+	 <table style="width:100%">
+		<tr>
+			<td style="width:15%"><img src="FAME_Logo_dash.js.png" style="display: inline;border-radius: 50%;"></td>
+			<td style="width:85%"><input autocomplete="off" name="search" id="searchBar" placeholder="Search..." type="text" style="display: inline;"></td>
+		</tr>
+	</table> 
+	<!--<img src="FAME_Logo_dash.js.png" style="display: inline;"><input autocomplete="off" name="search" id="searchBar" placeholder="Search..." type="text" style="display: inline;">-->
+        <div  style="margin:0 0 0 250px">
             <video class="dashjs-player" autoplay preload="none" controls="true">
                 <source src="https://dash.akamaized.net/akamai/bbb_30fps/bbb_30fps.mpd" type="application/dash+xml"/>
             </video>
