@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Andreas Bauer - DASH player</title>
+	<link rel="shortcut icon" type="image/png" href="img/logo-favicon.ico.png">
+	<script src="playback-functions.js"></script>
+	<script src="dash.all.debug.js"></script>
+    <style>
+        video {
+            width: 920px;
+            height: 560px;
+        }
+		body {
+			background-image: linear-gradient(to bottom right,rgb(190,194,203),rgb(108,122,206));
+			background-size: contain;
+		}
+		#searchBar {
+			width: 75%;
+			background-color: white;
+			border: 1px solid #000;
+			padding: 15px 50px 15px 10px;
+			color: #000;
+			border-radius: 8px;
+			font-family: nunito_sansregular;
+		}
+    </style>
+</head>
+	<!--  onload function is used to initiate the default div-Bracket and initiating a player within it-->
+    <body onload=" beginsettingContainer('helpContainer'); createPlayer(); Dash.createAll();">
+	 <table style="width:100%">
+		<tr>
+			<td style="width:15%"><img src="FAME_Logo_dash.js.png" style="display: inline;border-radius: 50%;"></td>
+			<td style="width:85%"><input autocomplete="off" name="search" id="searchBar" placeholder="Search..." type="text" style="display: inline;"></td>
+		</tr>
+	</table> 
+		<!--Two Players are included to test switching between Containers-->
+		<div id="helpContainer" style="margin:0 0 0 250px">
+            <video id="videoPlayer" autoplay controls></video>
+        </div>
+		<div id="helpContainer2" style="margin:0 0 0 250px">
+            <video id="videoPlayer" autoplay controls></video>
+        </div>
+	 
+	 <!--At this point I implemented myself some input.Elements to better facilitate testing
+	 I do realize they would never be part of a real life application-->
+	 
+	 <script>
+		function beginLoadingNewVideo() {
+			open(document.getElementById('fileLink').value);
+		}
+		function beginsettingContainer() {
+			setContainer(document.getElementById('containerId').value);
+		}
+		function beginsettingTimeFrame() {
+			seek(document.getElementById('secondsOfMovie').value);
+		}
+	 </script>
+	 <button type="button" onclick="beginsettingContainer();">Set Container</button><input type="text" id="containerId"><br>
+	 <button type="button" onclick="beginLoadingNewVideo();">Open</button><input type="text" id="fileLink"><br>
+	 <button type="button" onclick="play();">Play</button><br>
+	 <button type="button" onclick="pause();">Pause</button><br>
+	 <button type="button" onclick="beginsettingTimeFrame();">Seek</button><input type="number" id="secondsOfMovie"><br>
+	 <button type="button" onclick="stop();">Stop</button><br>
+	 <button type="button" onclick="destroy();">Destroy</button><br>
+    </body>
+</html>
